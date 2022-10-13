@@ -4,7 +4,7 @@
   *main - this is the entry point of the program
   *
   *puts - will be used to display the output
-  *return - this will return 0 when the condition is met
+  *Return: Always 0
   */
 
 int main(void)
