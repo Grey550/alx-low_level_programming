@@ -3,7 +3,7 @@
 /**
  * main - Prints numbers using ASCII
  *
- * Return : Always 0
+ * Return: Always 0
  */
 
 int main(void)
