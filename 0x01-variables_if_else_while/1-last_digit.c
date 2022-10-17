@@ -4,7 +4,7 @@
 
 /**
   * main - Determines whether the last digit is greater than 5,
-  equals to 0 or less than 6
+  * equals to 0 or less than 6
   *
   * Return: Always 0
   */
@@ -17,10 +17,10 @@ int main(void)
 	srand(time(0));
 	n = rand() - RAND_MAX / 2;
 	z = n % 10;
-	printf("Last digit of %d is %d", n, z);
+	printf("Last digit of %d is %d\n", n, z);
 	if (n > 5)
 	{
-		printf("and is greater than 5");
+		printf("and is greater than 5\n");
 	}
 	else if (z == 0)
 	{
@@ -28,7 +28,7 @@ int main(void)
 	}
 	else if (z < 6 && z != 0)
 	{
-		printf("and is less than 6 and not 0");
+		printf("and is less than 6 and not 0\n");
 	}
 	return (0);
 }
