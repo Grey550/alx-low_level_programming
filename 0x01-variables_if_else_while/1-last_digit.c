@@ -28,7 +28,7 @@ int main(void)
 	}
 	else if (z < 6 && z != 0)
 	{
-		printf("and is less than 6 and not 0\n");
+		printf("and is less than 6 and not 0");
 	}
 	return (0);
 }
