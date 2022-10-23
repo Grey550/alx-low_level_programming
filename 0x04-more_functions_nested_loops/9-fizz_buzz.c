@@ -23,11 +23,15 @@ int main(void)
 		}
 		else if (y % 5 == 0)
 		{
-			printf("Buzz");
+			printf("Buzz ");
 		}
 		else
 		{
 			printf("%d ", y);
+		}
+		if (y < 100)
+		{
+			printf(" ");
 		}
 	}
 	printf("\n");
