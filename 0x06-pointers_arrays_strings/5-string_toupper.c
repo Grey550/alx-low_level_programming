@@ -1,5 +1,4 @@
 #include "main.h"
-#include <string.h>
 
 /**
  * string_toupper - converts a string to uppercase
@@ -10,14 +9,15 @@
 
 char *string_toupper(char *str)
 {
-	int i;
+	int x = 0;
 
-	for (i  = 0; i <= strlen(str); i++)
+	while (str[x])
 	{
-		if (str[i] >= 97 && str[i] <= 122)
+		if (str[x] >= 97 && str[x] <= 122)
 		{
-			str[i] = str[i] - 32;
+			str[x] -= 32;
 		}
+		x++;
 	}
 	return (str);
 }
