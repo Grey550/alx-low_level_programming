@@ -11,21 +11,28 @@
 
 int main(int argc, char *argv[])
 {
-	int x, y, results = 0;
+	int results = 0,  x, y, z;
 
-	for (x = 1; x < argc; argc++)
+	if (argc == 1)
 	{
-		for (y = 0; argv[x][y]; y++)
+		printf("0\n");
+	}
+		for (x = 1; x < argc; argc++)
 		{
-			if (argv[x][y] < 48 || argv[x][y] > 57)
+			for (y = 0; argv[x][y] != '\0'; y++)
 			{
-				printf("Errot\n");
-				return (1);
+				if (argv[x][y] > '9' || argv[x][y] < '0')
+				{
+					printf("%s\n", "Error");
+					return (1);
+				}
 			}
 		}
-		results += atoi(argv[x]);
-	}
-	printf("%d\n", results);
-	printf("\n");
-	return (0);
+		for (z  = 1; z < argc; z++)
+		{
+			z = atoi(argv[x]);
+			results += z;
+		}
+		printf("%d\n", results);
+		return (0);
 }
