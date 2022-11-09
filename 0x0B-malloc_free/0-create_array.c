@@ -3,7 +3,6 @@
 
 /**
  * create_array - creates an array
- * @unsigned: value
  * @size: size of expected array
  * @c: array
  * Return: Null if size is 0 and Null if it fails
