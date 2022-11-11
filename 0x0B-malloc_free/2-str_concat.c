@@ -42,10 +42,10 @@ char *str_concat(char *s1, char *s2)
 		programme[x] = s1[x];
 		x++;
 	}
-	while (s2[y] != '\0')
+	while (s2[x] != '\0')
 	{
-		programme[y] = s2[y];
-		y++;
+		programme[x] = s2[x];
+		x++, y++;
 	}
 	programme[x] = '\0';
 	return (programme);
