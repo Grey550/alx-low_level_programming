@@ -28,6 +28,7 @@ void print_strings(const char *separator, const unsigned int n, ...)
 		if (string == NULL)
 		{
 			printf("(nil)");
+			break;
 		}
 		printf("%s", string);
 		if (n == x + 1)
