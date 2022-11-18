@@ -3,61 +3,46 @@
 #include "variadic_functions.h"
 
 
-void print_char(va_list arg);
-void print_int(va_list arg);
-void print_float(va_list arg);
-void print_string(va_list arg);
-void print_all(const char * const format, ...);
 
 /**
- * print_char - prints a char.
- * @arg: arguments
+ * op_c - prints a char.
+ * @form: name va_list
  */
 
-void print_char(va_list arg)
+void op_c(va_list form)
 {
-	char letter;
-
-	letter = va_arg(arg, int);
-	printf("%c", letter);
+	printf("%c", va_arg(form, int));
 }
 
 /**
- * print_int - prints an integer
- * @arg: arguments
+ * op_i - prints an integer
+ * @form: name va_list
  */
 
-void print_int(va_list arg)
+void op_i(va_list form)
 {
-	int num;
+		printf("%i", va_arg(form, int));
+}
+/**
+ * op_f - prints a float.
+ * @form: name
+ */
 
-	num = va_arg(arg, int);
-	printf("%d", num);
+void op_f(va_list form)
+{
+	printf("%f", va_arg(form, double));
 }
 
 /**
- * print_float - prints a float.
- * @arg: arguments
+ * op_s - prints a string.
+ * @form: name
  */
 
-void print_float(va_list arg)
-{
-	float num;
-
-	num = va_arg(arg, double);
-	printf("%f", num);
-}
-
-/**
- * print_string - prints a string.
- * @arg: arguments
- */
-
-void print_string(va_list arg)
+void op_s(va_list form)
 {
 	char *str;
 
-	str = va_arg(arg, char *);
+	str = va_arg(form, char *);
 
 	if (str == NULL)
 	{
@@ -81,27 +66,33 @@ void print_string(va_list arg)
 void print_all(const char * const format, ...)
 {
 	va_list args;
-	int i = 0, j = 0;
+	unsigned int i = 0, j = 0;
 	char *separator = "";
 
-	printer_t funcs[] = {{"c", print_char},{"i", print_int},{"f", print_float}{"s", print_string}
+	f ops[] = {
+		{"c", op_c},
+		{"i", op_i},
+		{"f", op_f},
+		{"s", op_s},
 	};
 
 	va_start(args, format);
-
+	i = 0;
 	while (format && (*(format + i)))
 	{
 		j = 0;
-		while (j < 4 && (*(format + i) != *(funcs[j].symbol)))
-			j++;
-
-		if (j < 4)
+		while (j < 4)
 		{
-			printf("%s", separator);
-			funcs[j].print(args);
-			separator = ", ";
+			if (ops[j].op[0] == format[i])
+			{
+				printf("%s", separator);
+				separator = ", ";
+				ops[j].f(args);
+				break;
+			}
+			j++;
 		}
-		i++;
+	i++;
 	}
 	printf("\n");
 
